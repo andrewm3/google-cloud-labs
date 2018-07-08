@@ -16,6 +16,10 @@ resource "google_compute_instance_template" "default" {
   network_interface {
     network    = "${var.subnetwork == "" ? var.network : "" }"
     subnetwork = "${var.subnetwork}"
+
+    access_config {
+      // Ephemeral IP
+    }
   }
 
   metadata {
