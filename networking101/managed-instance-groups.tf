@@ -30,7 +30,7 @@ resource "google_compute_region_autoscaler" "us-east1" {
   target = "${google_compute_region_instance_group_manager.us-east1-mig.self_link}"
 
   autoscaling_policy = {
-    max_replicas    = 5
+    max_replicas    = 4
     min_replicas    = 1
     cooldown_period = 45
 
