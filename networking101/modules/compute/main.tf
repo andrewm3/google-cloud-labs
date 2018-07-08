@@ -12,7 +12,7 @@ resource "google_compute_instance" "default" {
   }
 
   network_interface {
-    network    = "${var.network}"
+    network    = "${var.subnetwork == "" ? var.network : ""}"
     subnetwork = "${var.subnetwork}"
 
     address = "${var.ip}"
