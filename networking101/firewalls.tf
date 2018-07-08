@@ -43,3 +43,17 @@ resource "google_compute_firewall" "icmp" {
     protocol = "icmp"
   }
 }
+
+resource "google_compute_firewall" "http" {
+  name    = "${var.network}-firewall-allow-http"
+  network = "${var.network}"
+
+  source_ranges = ["0.0.0.0/0"]
+
+  allow {
+    protocol = "tcp"
+    ports    = ["80"]
+  }
+
+  target_tags = ["http-server"]
+}
